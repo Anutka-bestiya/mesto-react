@@ -1,0 +1,6 @@
+.form__input {
+  color: #000;
+}
+.form__input:focus-visible {
+  outline: none;
+}
