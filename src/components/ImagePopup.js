@@ -3,7 +3,7 @@ import React from 'react';
 function ImagePopup({ card, onClose }) {
   return (
     <section
-      className={`popup image-popup ${card !== null ? 'popup_opened' : ''} `}
+      className={`popup image-popup ${card ? 'popup_opened' : ''} `}
       aria-label="Фото из галереи"
     >
       <figure className="image-popup__element popup__inactiv-close">
@@ -12,11 +12,11 @@ function ImagePopup({ card, onClose }) {
         </button>
         <img
           className="image-popup__image"
-          src={card !== null ? card.link : '#'}
-          alt={card !== null ? card.name : 'Фото'}
+          src={card ? card.link : '#'}
+          alt={card ? card.name : 'Фото'}
         />
         <figcaption className="image-popup__element">
-          <p className="image-popup__title">{card !== null ? card.name : ''}</p>
+          <p className="image-popup__title">{card ? card.name : ''}</p>
         </figcaption>
       </figure>
     </section>

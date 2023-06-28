@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Card({ key, name, link, likes, onCardClick }) {
+function Card({ card, onCardClick }) {
   return (
     <li className="elements__list">
       <figure className="element">
@@ -9,19 +9,19 @@ function Card({ key, name, link, likes, onCardClick }) {
         </button>
         <img
           className="element__image"
-          src={link}
-          alt={name}
+          src={card.link}
+          alt={card.name}
           onClick={() => {
-            onCardClick(name, link);
+            onCardClick(card.name, card.link);
           }}
         />
         <figcaption className="element__caption">
-          <p className="title element__title">{name}</p>
+          <p className="title element__title">{card.name}</p>
           <div className="element__like">
             <button className="button button-like">
               <div className="sr-only">Поставить лайк</div>
             </button>
-            <p className="text element__like-count">{likes.length}</p>
+            <p className="text element__like-count">{card.likes.length}</p>
           </div>
         </figcaption>
       </figure>

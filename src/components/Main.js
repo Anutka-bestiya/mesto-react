@@ -21,20 +21,13 @@ function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick }) {
       .catch(err => {
         console.log(`Ошибка получения UserInfo: ${err}`);
       });
-  });
+  }, []);
 
   React.useEffect(() => {
     api
       .getInitialCards()
       .then(cards => {
-        setCards(
-          cards.map(data => ({
-            likes: data.likes,
-            link: data.link,
-            name: data.name,
-            cardId: data._id
-          }))
-        );
+        setCards(cards);
       })
       .catch(err => {
         console.log(`Ошибка получения массива Cards: ${err}`);
@@ -69,13 +62,7 @@ function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick }) {
       <section className="photo-galery section" aria-label="Галерея">
         <ul className="elements page__list">
           {cards.map(card => (
-            <Card
-              key={card.cardId}
-              name={card.name}
-              link={card.link}
-              likes={card.likes}
-              onCardClick={onCardClick}
-            />
+            <Card key={card._id} card={card} onCardClick={onCardClick} />
           ))}
         </ul>
       </section>

@@ -45,10 +45,10 @@ function App() {
           className="popup__input form__input text text_size_small form-user-name"
           type="text"
           name="name"
-          value=""
+          // value=""
           required
-          minlength="2"
-          maxlength="40"
+          minLength="2"
+          maxLength="40"
           placeholder="Имя"
         />
         <span className="popup__error popup__error-name"></span>
@@ -56,10 +56,10 @@ function App() {
           className="popup__input form__input text text_size_small form-user-about"
           type="text"
           name="about"
-          value=""
+          // value=""
           required
-          minlength="2"
-          maxlength="200"
+          minLength="2"
+          maxLength="200"
           placeholder="О себе"
         />
         <span className="popup__error popup__error-about"></span>
@@ -76,7 +76,7 @@ function App() {
           className="popup__input form__input text text_size_small form-avatar__input"
           type="url"
           name="avatar"
-          value=""
+          // value=""
           required
           placeholder="https://site.com"
         />
@@ -94,10 +94,10 @@ function App() {
           className="popup__input form__input text text_size_small add-card__text form-add-card-name"
           type="text"
           name="name"
-          value=""
+          // value=""
           required
-          minlength="2"
-          maxlength="30"
+          minLength="2"
+          maxLength="30"
           placeholder="Название"
         />
         <span className="popup__error popup__error-name"></span>
@@ -105,7 +105,7 @@ function App() {
           className="popup__input form__input text text_size_small add-card__text form-add-card-link"
           type="url"
           name="link"
-          value=""
+          // value=""
           required
           placeholder="https://site.com"
         />

@@ -8,7 +8,7 @@ function PopupWithForm(props) {
           <div className="sr-only">Закрыть</div>
         </button>
         <h2 className="title popup__title">{props.title}</h2>
-        <form className={`popup__form form form_${props.name}`} novalidate>
+        <form className={`popup__form form form_${props.name}`} noValidate>
           {props.children}
           <button
             className="popup__button button text-button text"
