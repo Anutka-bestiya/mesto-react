@@ -57,16 +57,11 @@ class Api /*extends React.Component*/ {
     }).then(res => this._res(res));
   }
 
-  addLike(id) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: 'PUT',
-      headers: this._headers
-    }).then(res => this._res(res));
-  }
+  changeLikeCardStatus(id, isLiked) {
+    const method = isLiked ? 'PUT' : 'DELETE';
 
-  deleteLike(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: 'DELETE',
+      method: method,
       headers: this._headers
     }).then(res => this._res(res));
   }
