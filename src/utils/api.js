@@ -5,7 +5,7 @@ class Api /*extends React.Component*/ {
     this._headers = headers;
   }
 
-  _res(res) {
+  _checkRes(res) {
     if (res.ok) {
       return res.json();
     }
@@ -16,7 +16,7 @@ class Api /*extends React.Component*/ {
   getUserInfoServe() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: { authorization: this._headers.authorization }
-    }).then(res => this._res(res));
+    }).then(res => this._checkRes(res));
   }
 
   setUserInfoServe({ name, about }) {
@@ -24,7 +24,7 @@ class Api /*extends React.Component*/ {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({ name, about })
-    }).then(res => this._res(res));
+    }).then(res => this._checkRes(res));
   }
 
   setUserAvatarServe({ avatar }) {
@@ -32,14 +32,14 @@ class Api /*extends React.Component*/ {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({ avatar })
-    }).then(res => this._res(res));
+    }).then(res => this._checkRes(res));
   }
 
   //запрос карточек
   getInitialCards() {
     return fetch(this._baseUrl + '/cards', {
       headers: { authorization: this._headers.authorization }
-    }).then(res => this._res(res));
+    }).then(res => this._checkRes(res));
   }
 
   saveNewCard({ name, link }) {
@@ -47,14 +47,14 @@ class Api /*extends React.Component*/ {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({ name, link })
-    }).then(res => this._res(res));
+    }).then(res => this._checkRes(res));
   }
 
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: this._headers
-    }).then(res => this._res(res));
+    }).then(res => this._checkRes(res));
   }
 
   changeLikeCardStatus(id, isLiked) {
@@ -63,7 +63,7 @@ class Api /*extends React.Component*/ {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: method,
       headers: this._headers
-    }).then(res => this._res(res));
+    }).then(res => this._checkRes(res));
   }
 }
 
